@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    asdasdasd
+    <script>
+    var json={
+        "name":"bkb",
+        "age":"250"
+    }
+    var ajax=new XMLHttpRequest();
+    ajax.open("get","d.php",true);
+    ajax.send(null);
+    ajax.onreadystatechange=function(){
+        if(ajax.readyState===4){
+            console.log(ajax.responseText);
+            var a=JSON.parse(ajaxponseTexts);
+        }
+    }
+    </script>
+    </body>
+</html>

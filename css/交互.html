@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    <span>UsName</span>
+    <input type="text" name="" id="na">
+    <span>Password</span>
+    <input type="text" name="" id="psw">
+    <button id="btn">提交</button>
+    <script>
+        btn.onclick=function(){
+            var ajax=new XMLHttpRequest()
+            ajax.open("get","jiaohu.php?user="+na.value+"&psw="+psw.value,true)
+            ajax.send(null)
+            ajax.onreadystatechange=function(){
+                if(ajax.readyState===4&&ajax.status===200){
+                    console.log(ajax.responseText)
+                    var res=JSON.parse(ajax.responseText).code;
+                    if(res===0){
+                        alert("ユーザーネームはいない。")
+                    }else if(res===1){
+                        alert("暗証番号は違います。")
+                    }else if(res===2){
+                        alert("できました。")
+                    }
+                }
+            }
+        }
+    </script>
+    </body>
+</html>

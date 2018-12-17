@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    <div id="bo" style="width:100px;height:100px;background:pink;position:absolute;"></div>
+    <script>
+    function app(id){
+        this.bo=document.getElementById(id)
+    }
+    app.prototype.init=function(){
+        this.bo.onmousedown=function(ev){
+            var x=ev.offsetX;
+            var y=ev.offsetY;
+            document.onmousemove=(ev)=>{
+                this.style.left=ev.clientX-x+"px";
+                this.style.top=ev.clientY-y+"px";
+            }
+            document.onmouseup=()=>{
+                document.onmousemove=null;
+            }
+        }
+    }
+    var d1=new app("bo");
+    d1.init();
+    </script>
+    </body>
+</html>

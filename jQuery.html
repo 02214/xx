@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+            /*div{
+                width: 200px;
+                height: 200px;
+                background: gray;
+            }*/
+        </style>
+    </head>
+    <body>
+    <!-- <div class="box" style="background:pink;"></div> -->
+    <input type="text" name="" id="input">
+    <ul class="box"></ul>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+        // $("div").css("background","gold");
+        // $(".box").css("")
+        // $("#box")[0]
+        // 覆盖留言
+        // $(":text").blur(function(){
+        //     $(".box").html(`<li>${$(":text").val()}</li>`);
+        //     $(":text").val(" ");
+        // })
+        // 留言
+        $(":text").blur(function(){
+            $(".box").append(`<li>${$(this).val()}<b>删除</b></li>`);
+            $(":text").val(" ");
+            $("b").click(function(){
+                $(this).parent().remove();
+            })
+        })
+        //dom留言
+        // input.onblur=function(){
+        //     var li=document.createElement("li");
+        //     li.innerHTML=this.value;
+        //     box.append('li');
+        // }
+
+    </script>
+    </body>
+</html>

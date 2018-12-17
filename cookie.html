@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    用户名<input type="text" name="" id="input">
+    <script>
+    document.cookie="us=12";
+    document.cookie="ak=21";
+    document.cookie="as=22"
+    // var res=document.cookie;
+    // var arr=res.split("; ");
+    // var newarr=arr.filter(item=>{
+    //     return item.indexOf("us")!=-1;
+    // })
+    // var a=newarr[0].split("=")[1];
+    // input.value=a;
+    
+
+
+    // function queryCookie(str){
+    //     var res=document.cookie;
+    //     var arr=res.split("; ");
+    //     var newarr=arr.filter(item=>item.indexOf(str)!=-1);
+    //     if(newarr[0]){
+    //         var a=newarr[0].split("=")[1];
+    //         return a;
+    //     }else{
+    //         return " ";
+    //     }
+    // }
+    // var b=queryCookie("us");
+    // console.log(b);
+    
+
+    var a=new Date;
+    a.setDate(a.getDate()+3);
+    console.log(a);
+    document.cookie="us=12;expires="+a.toGMTString();
+    </script>
+    </body>
+</html>

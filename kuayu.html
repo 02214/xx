@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+        li,ul{
+            list-style: none;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+            #box1{
+                position: relative;
+                width: 200px;
+                height: 50px;
+            }
+            #inp{
+                width: 200px;
+                height: 50px;
+            }
+            #box{
+                width: 200px;
+                height: 300px;
+                position: absolute;
+                border:1px solid red;
+                top: 52px;
+                left: 1px;
+                /*display: none;*/
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="box1">
+            <input type="text" name="" id="inp">
+            <ul id="box">
+
+            </ul>
+        </div>
+        <script>
+        inp.onkeyup=function(){
+            var ajax=new XMLHttpRequest();
+            ajax.open("get","kuayu.php?cont="+inp.value,true);
+            ajax.send(null);
+            ajax.onreadystatechange=function(){
+                if(ajax.readyState===4&&ajax.status===200){
+                    var res=JSON.parse(ajax.responseText).suggestKeycords;
+                    var str="";
+                    res.forEach(item=>{
+                        str+=`<li><a href="https://www.kaola.com/search.html?zn=top&key=${item}&searchRefer=suggestion&referPosition">email me</a>${item}</li>`
+                    })
+                    console.log(str)
+                    box.innerHTML=str;
+                }
+            }
+        }
+        
+        </script>
+    </body>
+</html>
